@@ -117,7 +117,7 @@ export default function Home() {
             </ul>
           </div>
 
-          {/* Top Repos Chart */
+          
           <div>
             <h3 className="text-xl font-semibold mb-2">Top 5 Repos by Stars</h3>
             <BarChartComponent
