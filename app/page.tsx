@@ -102,22 +102,25 @@ export default function Home() {
           Enter a GitHub username to see their profile and top repos.
         </p>
 
-        <div className="flex justify-center gap-3 mb-6">
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && fetchData()}
-            placeholder="GitHub username"
-            className="border rounded-md p-2 w-64 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-          <button
-            onClick={fetchData}
-            disabled={loading}
-            className="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-600 transition disabled:opacity-50"
-          >
-            {loading ? "Loading..." : "Fetch Data"}
-          </button>
+        <div className="flex flex-col items-center gap-2 mb-6">
+          <div className="flex gap-3">
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && fetchData()}
+              placeholder="GitHub username"
+              className="border rounded-md p-2 w-64 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+            <button
+              onClick={fetchData}
+              disabled={loading}
+              className="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-600 transition disabled:opacity-50"
+            >
+              {loading ? "Loading..." : "Fetch Data"}
+            </button>
+          </div>
+          <span className="text-xs text-gray-400">Press Enter to search</span>
         </div>
 
       {error && <p className="text-center text-red-500 mb-4">{error}</p>}
