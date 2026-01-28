@@ -125,7 +125,22 @@ export default function Home() {
 
       {error && <p className="text-center text-red-500 mb-4">{error}</p>}
 
-      {loading && <p className="text-center text-gray-500">Loading...</p>}
+      {loading && (
+        <div className="bg-white shadow-md rounded-lg p-6 space-y-4 animate-pulse">
+          <div className="flex items-center gap-4">
+            <div className="w-20 h-20 bg-gray-200 rounded-full"></div>
+            <div className="space-y-2">
+              <div className="h-6 w-32 bg-gray-200 rounded"></div>
+              <div className="h-4 w-48 bg-gray-200 rounded"></div>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="h-24 bg-gray-200 rounded"></div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {data && (
         <div className="bg-white shadow-md rounded-lg p-6 space-y-6">
