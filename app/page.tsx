@@ -190,6 +190,9 @@ export default function Home() {
                 </li>
               ))}
             </ul>
+            {sortedRepos.length === 0 && (
+              <p className="text-center text-gray-500 py-4">No repos found matching your filter</p>
+            )}
           </div>
 
           
