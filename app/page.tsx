@@ -40,6 +40,8 @@ export default function Home() {
         })
     : [];
 
+  const totalStars = data?.repos?.reduce((sum: number, r: any) => sum + r.stars, 0) || 0;
+
   const fetchData = async () => {
     if (!username.trim()) {
       setError("Please enter a GitHub username");
