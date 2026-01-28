@@ -67,6 +67,7 @@ export default function Home() {
       setData({
         username: userData.login,
         avatar: userData.avatar_url,
+        profileUrl: userData.html_url,
         bio: userData.bio,
         location: userData.location,
         publicRepos: userData.public_repos,
