@@ -234,6 +234,9 @@ export default function Home() {
         </div>
       )}
       </div>
+      <footer className="text-center py-6 text-gray-400 text-sm">
+        Built with Next.js • Data from GitHub API
+      </footer>
     </div>
   );
 }
