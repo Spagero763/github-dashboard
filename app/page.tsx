@@ -78,6 +78,7 @@ export default function Home() {
         following: userData.following,
         repos: reposData.map((repo: any) => ({
           name: repo.name,
+          description: repo.description,
           stars: repo.stargazers_count,
           forks: repo.forks_count,
           language: repo.language,
@@ -185,6 +186,9 @@ export default function Home() {
                   >
                     {repo.name}
                   </a>
+                  {repo.description && (
+                    <p className="text-gray-500 text-xs mt-1 line-clamp-2">{repo.description}</p>
+                  )}
                   <div className="flex gap-3 text-sm text-gray-500 mt-1">
                     <span>⭐ {repo.stars}</span>
                     <span>🍴 {repo.forks}</span>
