@@ -137,15 +137,24 @@ export default function Home() {
           <div>
             <div className="flex justify-between items-center mb-3">
               <h3 className="text-xl font-semibold">Repositories ({data.repos.length})</h3>
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as any)}
-                className="border rounded px-2 py-1 text-sm"
-              >
-                <option value="stars">Sort by Stars</option>
-                <option value="forks">Sort by Forks</option>
-                <option value="name">Sort by Name</option>
-              </select>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  placeholder="Filter repos..."
+                  value={repoFilter}
+                  onChange={(e) => setRepoFilter(e.target.value)}
+                  className="border rounded px-2 py-1 text-sm w-32"
+                />
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value as any)}
+                  className="border rounded px-2 py-1 text-sm"
+                >
+                  <option value="stars">Sort by Stars</option>
+                  <option value="forks">Sort by Forks</option>
+                  <option value="name">Sort by Name</option>
+                </select>
+              </div>
             </div>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {sortedRepos.map((repo: any) => (
