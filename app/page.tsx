@@ -124,22 +124,26 @@ export default function Home() {
 
           {/* Repo List */}
           <div>
-            <h3 className="text-xl font-semibold mb-2">Repos:</h3>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+            <h3 className="text-xl font-semibold mb-2">Repositories ({data.repos.length})</h3>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {data.repos.map((repo: any) => (
                 <li
                   key={repo.name}
-                  className="border p-2 rounded-md hover:shadow-lg transition cursor-pointer"
+                  className="border p-3 rounded-md hover:shadow-lg transition"
                 >
                   <a
                     href={repo.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-indigo-600 hover:underline"
+                    className="text-indigo-600 hover:underline font-medium"
                   >
                     {repo.name}
-                  </a>{" "}
-                  ⭐ {repo.stars}
+                  </a>
+                  <div className="flex gap-3 text-sm text-gray-500 mt-1">
+                    <span>⭐ {repo.stars}</span>
+                    <span>🍴 {repo.forks}</span>
+                    {repo.language && <span className="text-gray-600">{repo.language}</span>}
+                  </div>
                 </li>
               ))}
             </ul>
