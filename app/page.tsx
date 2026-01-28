@@ -132,9 +132,20 @@ export default function Home() {
 
           {/* Repo List */}
           <div>
-            <h3 className="text-xl font-semibold mb-2">Repositories ({data.repos.length})</h3>
+            <div className="flex justify-between items-center mb-3">
+              <h3 className="text-xl font-semibold">Repositories ({data.repos.length})</h3>
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value as any)}
+                className="border rounded px-2 py-1 text-sm"
+              >
+                <option value="stars">Sort by Stars</option>
+                <option value="forks">Sort by Forks</option>
+                <option value="name">Sort by Name</option>
+              </select>
+            </div>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {data.repos.map((repo: any) => (
+              {sortedRepos.map((repo: any) => (
                 <li
                   key={repo.name}
                   className="border p-3 rounded-md hover:shadow-lg transition"
