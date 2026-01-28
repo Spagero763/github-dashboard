@@ -49,6 +49,7 @@ export default function Home() {
     }
     setLoading(true);
     setError(null);
+    setData(null);
 
     try {
       const userRes = await fetch(`https://api.github.com/users/${username}`);
