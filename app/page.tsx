@@ -91,13 +91,14 @@ export default function Home() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-2 text-center">GitHub Activity Dashboard</h1>
-      <p className="text-center text-gray-600 mb-6">
-        Enter a GitHub username to see their profile and top repos.
-      </p>
+    <div className="min-h-screen bg-gray-50 py-8">
+      <div className="max-w-4xl mx-auto px-6">
+        <h1 className="text-3xl font-bold mb-2 text-center">GitHub Activity Dashboard</h1>
+        <p className="text-center text-gray-600 mb-6">
+          Enter a GitHub username to see their profile and top repos.
+        </p>
 
-      <div className="flex justify-center gap-3 mb-6">
+        <div className="flex justify-center gap-3 mb-6">
         <input
           type="text"
           value={username}
