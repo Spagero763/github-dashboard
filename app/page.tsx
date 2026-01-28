@@ -57,6 +57,9 @@ export default function Home() {
         if (userRes.status === 404) {
           throw new Error("User not found");
         }
+        if (userRes.status === 403) {
+          throw new Error("Rate limit exceeded. Try again later");
+        }
         throw new Error("Failed to fetch user data");
       }
       
