@@ -30,14 +30,24 @@ export default function Home() {
   const [username, setUsername] = useState("");
 
   const fetchData = async () => {
-    const usernameInput = document.getElementById("username") as HTMLInputElement;
-    const username = usernameInput.value.trim();
-    if (!username) return alert("Enter a GitHub username");
+    if (!username.trim()) {
+      setError("Please enter a GitHub username");
+      return;
+    }
     setLoading(true);
+    setError(null);
 
     try {
       const userRes = await fetch(`https://api.github.com/users/${username}`);
-      const reposRes = await fetch(`https://api.github.com/users/${username}/repos`);
+      
+      if (!userRes.ok) {
+        if (userRes.status === 404) {
+          throw new Error("User not found");
+        }
+        throw new Error("Failed to fetch user data");
+      }
+      
+      const reposRes = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
       const userData = await userRes.json();
       const reposData = await reposRes.json();
 
