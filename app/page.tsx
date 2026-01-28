@@ -41,6 +41,7 @@ export default function Home() {
     : [];
 
   const totalStars = data?.repos?.reduce((sum: number, r: any) => sum + r.stars, 0) || 0;
+  const totalForks = data?.repos?.reduce((sum: number, r: any) => sum + r.forks, 0) || 0;
 
   const fetchData = async () => {
     if (!username.trim()) {
@@ -165,6 +166,7 @@ export default function Home() {
                 <span className="text-gray-600">Followers: {data.followers}</span>
                 <span className="text-gray-600">Following: {data.following}</span>
                 <span className="text-gray-600">⭐ {totalStars}</span>
+                <span className="text-gray-600">🍴 {totalForks}</span>
               </div>
             </div>
           </div>
