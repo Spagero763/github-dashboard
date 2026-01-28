@@ -125,7 +125,14 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <img src={data.avatar} alt={data.username} className="w-20 h-20 rounded-full" />
             <div>
-              <h2 className="text-2xl font-semibold">{data.username}</h2>
+              <a
+                href={data.profileUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="text-2xl font-semibold hover:text-indigo-600"
+              >
+                {data.username}
+              </a>
               {data.bio && <p className="text-gray-500 text-sm">{data.bio}</p>}
               {data.location && <p className="text-gray-500 text-sm">📍 {data.location}</p>}
               <div className="flex gap-4 mt-2 text-sm">
