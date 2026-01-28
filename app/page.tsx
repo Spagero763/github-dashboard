@@ -81,17 +81,22 @@ export default function Home() {
       <div className="flex justify-center gap-3 mb-6">
         <input
           type="text"
-          id="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && fetchData()}
           placeholder="GitHub username"
           className="border rounded-md p-2 w-64 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
         <button
           onClick={fetchData}
-          className="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-600 transition"
+          disabled={loading}
+          className="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-600 transition disabled:opacity-50"
         >
-          Fetch Data
+          {loading ? "Loading..." : "Fetch Data"}
         </button>
       </div>
+
+      {error && <p className="text-center text-red-500 mb-4">{error}</p>}
 
       {loading && <p className="text-center text-gray-500">Loading...</p>}
 
