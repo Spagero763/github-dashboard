@@ -26,6 +26,8 @@ const BarChartComponent = dynamic(
 export default function Home() {
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [username, setUsername] = useState("");
 
   const fetchData = async () => {
     const usernameInput = document.getElementById("username") as HTMLInputElement;
