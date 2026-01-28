@@ -112,8 +112,13 @@ export default function Home() {
             <img src={data.avatar} alt={data.username} className="w-20 h-20 rounded-full" />
             <div>
               <h2 className="text-2xl font-semibold">{data.username}</h2>
-              <p className="text-gray-600">Public Repos: {data.publicRepos}</p>
-              <p className="text-gray-600">Followers: {data.followers}</p>
+              {data.bio && <p className="text-gray-500 text-sm">{data.bio}</p>}
+              {data.location && <p className="text-gray-500 text-sm">📍 {data.location}</p>}
+              <div className="flex gap-4 mt-2">
+                <span className="text-gray-600">Repos: {data.publicRepos}</span>
+                <span className="text-gray-600">Followers: {data.followers}</span>
+                <span className="text-gray-600">Following: {data.following}</span>
+              </div>
             </div>
           </div>
 
