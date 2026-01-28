@@ -29,12 +29,15 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [username, setUsername] = useState("");
   const [sortBy, setSortBy] = useState<"stars" | "forks" | "name">("stars");
+  const [repoFilter, setRepoFilter] = useState("");
 
   const sortedRepos = data?.repos
-    ? [...data.repos].sort((a: any, b: any) => {
-        if (sortBy === "name") return a.name.localeCompare(b.name);
-        return b[sortBy] - a[sortBy];
-      })
+    ? [...data.repos]
+        .filter((r: any) => r.name.toLowerCase().includes(repoFilter.toLowerCase()))
+        .sort((a: any, b: any) => {
+          if (sortBy === "name") return a.name.localeCompare(b.name);
+          return b[sortBy] - a[sortBy];
+        })
     : [];
 
   const fetchData = async () => {
