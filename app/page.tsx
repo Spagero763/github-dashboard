@@ -196,11 +196,12 @@ export default function Home() {
           <div>
             <h3 className="text-xl font-semibold mb-2">Top 5 Repos by Stars</h3>
             <BarChartComponent
-              data={data.repos.sort((a: any, b: any) => b.stars - a.stars).slice(0, 5)}
+              data={[...data.repos].sort((a: any, b: any) => b.stars - a.stars).slice(0, 5)}
             />
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 }
