@@ -63,8 +63,9 @@ export default function Home() {
         })),
       });
     } catch (err) {
-      alert("Error fetching data");
-      console.error(err);
+      const message = err instanceof Error ? err.message : "Something went wrong";
+      setError(message);
+      setData(null);
     }
 
     setLoading(false);
