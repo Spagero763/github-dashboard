@@ -54,11 +54,16 @@ export default function Home() {
       setData({
         username: userData.login,
         avatar: userData.avatar_url,
+        bio: userData.bio,
+        location: userData.location,
         publicRepos: userData.public_repos,
         followers: userData.followers,
+        following: userData.following,
         repos: reposData.map((repo: any) => ({
           name: repo.name,
           stars: repo.stargazers_count,
+          forks: repo.forks_count,
+          language: repo.language,
           url: repo.html_url,
         })),
       });
