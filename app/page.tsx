@@ -83,6 +83,7 @@ export default function Home() {
           forks: repo.forks_count,
           language: repo.language,
           url: repo.html_url,
+          createdAt: repo.created_at,
         })),
       });
     } catch (err) {
